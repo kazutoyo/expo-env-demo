@@ -1,3 +1,4 @@
+import Constants from 'expo-constants';
 import * as Device from 'expo-device';
 import { Platform, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -8,6 +9,8 @@ import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { WebBadge } from '@/components/web-badge';
 import { BottomTabInset, MaxContentWidth, Spacing } from '@/constants/theme';
+
+const APP_ENV = (Constants.expoConfig?.extra?.appEnv as string | undefined) ?? 'unknown';
 
 function getDevMenuHint() {
   if (Platform.OS === 'web') {
@@ -44,6 +47,10 @@ export default function HomeScreen() {
         </ThemedText>
 
         <ThemedView type="backgroundElement" style={styles.stepContainer}>
+          <HintRow
+            title="APP_ENV"
+            hint={<ThemedText type="code">{APP_ENV}</ThemedText>}
+          />
           <HintRow
             title="Try editing"
             hint={<ThemedText type="code">src/app/index.tsx</ThemedText>}
