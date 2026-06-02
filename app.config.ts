@@ -1,6 +1,6 @@
 import type { ExpoConfig } from "expo/config";
 
-const APP_ENV = process.env.APP_ENV ?? "development";
+const APP_ENV = process.env.EXPO_PUBLIC_APP_ENV ?? "development";
 const IS_DEV = APP_ENV === "development";
 const IS_STAGING = APP_ENV === "staging";
 
@@ -61,7 +61,9 @@ const config: ExpoConfig = {
   },
   extra: {
     router: {},
-    appEnv: APP_ENV,
+      "eas": {
+        "projectId": "2e86581c-adff-4023-afb2-64ce9ac5adde"
+      }
   },
 };
 
