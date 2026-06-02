@@ -61,9 +61,6 @@ const config: ExpoConfig = {
   },
   extra: {
     router: {},
-      "eas": {
-        "projectId": "2e86581c-adff-4023-afb2-64ce9ac5adde"
-      }
   },
 };
 
